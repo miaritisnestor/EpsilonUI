@@ -1,14 +1,17 @@
 ﻿@page "/"
+
 @using EpsilonDbContext.Models;
-@inject HttpClient Http
 @using System.Net.Http.Json
+
+@inject HttpClient Http
+@inject NavigationManager NavigationManager
 
 <PageTitle>Customers</PageTitle>
 
 <h1>Weather forecast</h1>
 
 
-@if (forecasts == null)
+@if (customers == null)
 {
     <p><em>Loading...</em></p>
 }
@@ -25,24 +28,22 @@ else
                 <th>Postal Code</th>
                 <th>Country</th>
                 <th>Phone</th>
-                <th>Add</th>
                 <th>Edit</th>
                 <th>Delete</th>
             </tr>
         </thead>
         <tbody>
-            @foreach (var forecast in forecasts)
+            @foreach (var customer in customers)
             {
                 <tr>
-                    <td>@customers.CompanyName</td>
-                    <td>@forecast.TemperatureC</td>
-                    <td>@forecast.TemperatureF</td>
-                    <td>@forecast.Summary</td>
-                    <td>@forecast.Date.ToShortDateString()</td>
-                    <td>@forecast.TemperatureC</td>
-                    <td>@forecast.TemperatureF</td>
-                    <td>@forecast.Summary</td>
-                    <td><button class="btn btn-primary">Add</button></td>
+                    <td>@customer.CompanyName</td>
+                    <td>@customer.ContactName</td>
+                    <td>@customer.Address</td>
+                    <td>@customer.City</td>
+                    <td>@customer.Region</td>
+                    <td>@customer.PostalCode</td>
+                    <td>@customer.Country</td>
+                    <td>@customer.Phone</td>
                     <td><button class="btn btn-primary">Edit</button></td>
                     <td><button class="btn btn-primary">Delete</button></td>
                 </tr>
@@ -51,24 +52,52 @@ else
     </table>
 }
 
+<div class="row">   
+    <div class="col-md-6">
+        <button class="btn btn-primary" @onclick="@GotoAddPage">Add New</button>
+    </div>
+    <div class="col-md-6">
+        <button class="btn btn-primary" @onclick="@CustomersNextPage">Next Page</button>
+        <button class="btn btn-primary" @onclick="@CustomersPreviousPage">Previous Page</button>
+    </div>
+</div>
+
+
+
 @code {
-    private WeatherForecast[]? forecasts;
-    private Customer? customers;
+    private List<Customer>? customers = new List<Customer>();
+    private int offset = 0;
+
+    private async Task GetCustomersByOffset(int offset)
+    {
+        customers = await Http.GetFromJsonAsync<List<Customer>>("https://localhost:7190/api/Customers/get_customers/" + offset);
+    }
 
     protected override async Task OnInitializedAsync()
     {
-        forecasts = await Http.GetFromJsonAsync<WeatherForecast[]>("https://localhost:7018/sample-data/weather.json");
-        customers = await Http.GetFromJsonAsync<Customer>("https://localhost:7190/api/Customers/get_customers/0");
+        await GetCustomersByOffset(offset);
     }
 
-    public class WeatherForecast
+    private async Task CustomersNextPage()
     {
-        public DateTime Date { get; set; }
+        offset += 5;
+        if (offset > 10) offset = 10;
 
-        public int TemperatureC { get; set; }
-
-        public string? Summary { get; set; }
-
-        public int TemperatureF => 32 + (int)(TemperatureC / 0.5556);
+        await GetCustomersByOffset(offset);
     }
+
+    private async Task CustomersPreviousPage()
+    {
+        offset -= 5;
+        if (offset < 0) offset = 0;
+        
+        await GetCustomersByOffset(offset);
+    }
+
+    private void GotoAddPage()
+    {
+        NavigationManager.NavigateTo("/add_customer");
+    }
+
+   
 }
