@@ -1,0 +1,32 @@
+﻿@page "/map_suggestion" 
+@using EpsilonUI.Dtos;
+
+@inject HttpClient Http
+
+<h3>BingMaps</h3>
+
+<div class="row">
+    <div class="col-md-3">
+        <div class="form-group">
+            <label for="search"> Search on your Location</label>
+            <input form="search" class="form-control" />
+            <button class="btn btn-primary mt-2">Search</button>
+        </div>
+    </div>
+</div>
+
+@code {
+    public string? mapQuery;
+
+    private async Task SearchBingMaps()
+    {
+        //Unfortunately, due to I developed the app in my company's pc 
+        //I can only login to bing with my company microsoft account
+        //As a result I can not create a bing key due to company's account restriction policies :(
+        MapResult? mapResults = await Http.GetFromJsonAsync<MapResult>("http://dev.virtualearth.net/REST/v1/Autosuggest?query=" + mapQuery + "&key=<BingMapKey>");
+        var mapValues = mapResults.resourceSets[0].resources[0].value;
+        //then loop through mapValues to render the results in UI ;)
+    }
+
+
+}
