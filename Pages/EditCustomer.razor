@@ -1,7 +1,11 @@
 ﻿@page "/edit_customer"
 
-@using EpsilonDbContext.Models;
+@implements IDisposable
 
+@using EpsilonDbContext.Models;
+@using EpsilonUI.StateContainers;
+
+@inject CustomerStateContainer customerStateContainer
 @inject HttpClient Http
 @inject NavigationManager NavigationManager
 @inject IJSRuntime JsRuntime
@@ -67,16 +71,22 @@
 </div>
 @code {
     Customer customer = new Customer();
+
+    protected override void OnInitialized()
+    {
+        customerStateContainer.OnChange += StateHasChanged;
+        customer = customerStateContainer.Property;
+    }
     
     protected async Task Save()
     {
-        var response = await Http.PostAsJsonAsync("https://localhost:7190/api/Customers/edit_customer", @customer);
-
+        var response = await Http.PutAsJsonAsync("https://localhost:7190/api/Customers/edit_customer", @customer);
+        
         Customer? customerResponse = await response.Content.ReadFromJsonAsync<Customer>();
 
         if (customerResponse?.Id > 0)
         {
-            await JsRuntime.InvokeVoidAsync("alert", "Saved Successfully!");
+            await JsRuntime.InvokeVoidAsync("alert", "Edited Successfully!");
             NavigationManager.NavigateTo("/");
         }
 
@@ -85,6 +95,11 @@
     void Cancel()
     {
         NavigationManager.NavigateTo("/");
+    }
+
+    public void Dispose()
+    {
+        customerStateContainer.OnChange -= StateHasChanged;
     }
 
     }

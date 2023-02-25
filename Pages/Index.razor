@@ -1,8 +1,12 @@
 ﻿@page "/"
 
+@implements IDisposable;
 @using EpsilonDbContext.Models;
-@using System.Net.Http.Json
+@using System.Net.Http.Json;
+@using EpsilonUI.StateContainers;
 
+@inject IJSRuntime JsRuntime
+@inject CustomerStateContainer customerStateContainer;
 @inject HttpClient Http
 @inject NavigationManager NavigationManager
 
@@ -44,8 +48,8 @@ else
                     <td>@customer.PostalCode</td>
                     <td>@customer.Country</td>
                     <td>@customer.Phone</td>
-                    <td><button class="btn btn-primary">Edit</button></td>
-                    <td><button class="btn btn-primary">Delete</button></td>
+                    <td><button class="btn btn-primary" @onclick="() => GotoEditPage(customer.Id)">Edit</button></td>
+                    <td><button class="btn btn-primary" @onclick="() => DeleteCustomer(customer)">Delete</button></td>
                 </tr>
             }
         </tbody>
@@ -75,6 +79,7 @@ else
 
     protected override async Task OnInitializedAsync()
     {
+        customerStateContainer.OnChange += StateHasChanged;
         await GetCustomersByOffset(offset);
     }
 
@@ -90,13 +95,44 @@ else
     {
         offset -= 5;
         if (offset < 0) offset = 0;
-        
+
         await GetCustomersByOffset(offset);
     }
 
     private void GotoAddPage()
     {
         NavigationManager.NavigateTo("/add_customer");
+    }
+
+    private void GotoEditPage(int id)
+    {
+        //System.Diagnostics.Debug.WriteLine($"customer id is: {id}");
+        //JsRuntime.InvokeVoidAsync("alert", $"customer id is: {id}");
+        Customer? customer = customers.Find(i => i.Id.Equals(id));
+        customerStateContainer.Property = customer;
+        NavigationManager.NavigateTo("/edit_customer");
+    }
+
+    private async Task DeleteCustomer(Customer customer)
+    {
+        var response = await Http.PostAsJsonAsync("https://localhost:7190/api/Customers/delete_customer", @customer);
+
+        Customer? customerResponse = await response.Content.ReadFromJsonAsync<Customer>();
+
+        if (customerResponse?.Id > 0)
+        {
+            await JsRuntime.InvokeVoidAsync("alert", "Deleted Successfully!");
+            //NavigationManager.NavigateTo("/");
+        }
+
+        //await InvokeAsync(() =>{ StateHasChanged(); });
+        NavigationManager.NavigateTo("/",true);
+
+    }
+
+    public void Dispose()
+    {
+        customerStateContainer.OnChange -= StateHasChanged;
     }
 
    

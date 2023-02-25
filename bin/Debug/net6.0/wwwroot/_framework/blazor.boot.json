@@ -204,14 +204,14 @@
       "netstandard.dll": "sha256-6NXprR7wyUZxpdXxaSPHSoC5uOL5UCc7bsZG3TSuVxE=",
       "System.Private.CoreLib.dll": "sha256-igtwZSR0\/lrbmwL\/XiTsEkIeSL+736GHTZPReYguZCQ=",
       "EpsilonDbContext.dll": "sha256-TFSmFnPZOeonltHgslxf5aYfzEfvp5BjfN3kiPGVMnE=",
-      "EpsilonUI.dll": "sha256-GVJmfBUVbs7hxkErKWGGuBWK3uv3qRtyPZgDUXMj2xQ="
+      "EpsilonUI.dll": "sha256-4NenV0a+GticogUIVUYxFme0S69CL2riyQ+tMFEj7Tc="
     },
     "extensions": null,
     "lazyAssembly": null,
     "libraryInitializers": null,
     "pdb": {
       "EpsilonDbContext.pdb": "sha256-8eMX4l9QJ8ngN33F18ZwlFG8yKEJDteNZbCduBMvai4=",
-      "EpsilonUI.pdb": "sha256-t7YVtullc0mxaVZZYMzPfOkm2rtz25k0pjCpMjumWZM="
+      "EpsilonUI.pdb": "sha256-hRcEvJCRxbMCzZplwF1FuRQsy89kCY5PXeUu1lyMoHA="
     },
     "runtime": {
       "dotnet.6.0.14.ioe2uwn871.js": "sha256-54cJ6JdGhGbKaLWxHfRYzYbuyRq2wlK\/ZDzfSXD3FEs=",

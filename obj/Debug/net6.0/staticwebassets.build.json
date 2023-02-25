@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "8nuOPpKrSLq0sdFC5t0d3SN4sBMKo7jW2WbMoT7bhvw=",
+  "Hash": "tabR7/5loYIcRdddMSNCqISGlpPnrxnWrxfTkOy1iRg=",
   "Source": "EpsilonUI",
   "BasePath": "/",
   "Mode": "Root",
@@ -170,6 +170,23 @@
       "OriginalItemSpec": "obj\\Debug\\net6.0\\EpsilonUI.pdb"
     },
     {
+      "Identity": "C:\\Users\\nestoras.miaritis\\Desktop\\NESTOR BACKUP FILES\\Projects\\c#\\EpsilonUI\\bin\\Debug\\net6.0\\wwwroot\\_framework\\icudt.dat",
+      "SourceId": "EpsilonUI",
+      "SourceType": "Computed",
+      "ContentRoot": "C:\\Users\\nestoras.miaritis\\Desktop\\NESTOR BACKUP FILES\\Projects\\c#\\EpsilonUI\\bin\\Debug\\net6.0\\wwwroot\\",
+      "BasePath": "/",
+      "RelativePath": "_framework/icudt.dat",
+      "AssetKind": "Build",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "BlazorWebAssemblyResource",
+      "AssetTraitValue": "native",
+      "CopyToOutputDirectory": "PreserveNewest",
+      "CopyToPublishDirectory": "Never",
+      "OriginalItemSpec": "C:\\Users\\nestoras.miaritis\\.nuget\\packages\\microsoft.netcore.app.runtime.mono.browser-wasm\\6.0.14\\runtimes\\browser-wasm\\native\\icudt.dat"
+    },
+    {
       "Identity": "C:\\Users\\nestoras.miaritis\\Desktop\\NESTOR BACKUP FILES\\Projects\\c#\\EpsilonUI\\bin\\Debug\\net6.0\\wwwroot\\_framework\\icudt_CJK.dat",
       "SourceId": "EpsilonUI",
       "SourceType": "Computed",
@@ -219,23 +236,6 @@
       "CopyToOutputDirectory": "PreserveNewest",
       "CopyToPublishDirectory": "Never",
       "OriginalItemSpec": "C:\\Users\\nestoras.miaritis\\.nuget\\packages\\microsoft.netcore.app.runtime.mono.browser-wasm\\6.0.14\\runtimes\\browser-wasm\\native\\icudt_no_CJK.dat"
-    },
-    {
-      "Identity": "C:\\Users\\nestoras.miaritis\\Desktop\\NESTOR BACKUP FILES\\Projects\\c#\\EpsilonUI\\bin\\Debug\\net6.0\\wwwroot\\_framework\\icudt.dat",
-      "SourceId": "EpsilonUI",
-      "SourceType": "Computed",
-      "ContentRoot": "C:\\Users\\nestoras.miaritis\\Desktop\\NESTOR BACKUP FILES\\Projects\\c#\\EpsilonUI\\bin\\Debug\\net6.0\\wwwroot\\",
-      "BasePath": "/",
-      "RelativePath": "_framework/icudt.dat",
-      "AssetKind": "Build",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "RelatedAsset": "",
-      "AssetTraitName": "BlazorWebAssemblyResource",
-      "AssetTraitValue": "native",
-      "CopyToOutputDirectory": "PreserveNewest",
-      "CopyToPublishDirectory": "Never",
-      "OriginalItemSpec": "C:\\Users\\nestoras.miaritis\\.nuget\\packages\\microsoft.netcore.app.runtime.mono.browser-wasm\\6.0.14\\runtimes\\browser-wasm\\native\\icudt.dat"
     },
     {
       "Identity": "C:\\Users\\nestoras.miaritis\\Desktop\\NESTOR BACKUP FILES\\Projects\\c#\\EpsilonUI\\bin\\Debug\\net6.0\\wwwroot\\_framework\\Microsoft.AspNetCore.Authorization.dll",
@@ -7191,23 +7191,6 @@
       "OriginalItemSpec": "wwwroot\\css\\bootstrap\\bootstrap.min.css.map"
     },
     {
-      "Identity": "C:\\Users\\nestoras.miaritis\\Desktop\\NESTOR BACKUP FILES\\Projects\\c#\\EpsilonUI\\wwwroot\\css\\open-iconic\\FONT-LICENSE",
-      "SourceId": "EpsilonUI",
-      "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\nestoras.miaritis\\Desktop\\NESTOR BACKUP FILES\\Projects\\c#\\EpsilonUI\\wwwroot\\",
-      "BasePath": "/",
-      "RelativePath": "css/open-iconic/FONT-LICENSE",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "RelatedAsset": "",
-      "AssetTraitName": "",
-      "AssetTraitValue": "",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\css\\open-iconic\\FONT-LICENSE"
-    },
-    {
       "Identity": "C:\\Users\\nestoras.miaritis\\Desktop\\NESTOR BACKUP FILES\\Projects\\c#\\EpsilonUI\\wwwroot\\css\\open-iconic\\font\\css\\open-iconic-bootstrap.min.css",
       "SourceId": "EpsilonUI",
       "SourceType": "Discovered",
@@ -7308,6 +7291,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.woff"
+    },
+    {
+      "Identity": "C:\\Users\\nestoras.miaritis\\Desktop\\NESTOR BACKUP FILES\\Projects\\c#\\EpsilonUI\\wwwroot\\css\\open-iconic\\FONT-LICENSE",
+      "SourceId": "EpsilonUI",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\nestoras.miaritis\\Desktop\\NESTOR BACKUP FILES\\Projects\\c#\\EpsilonUI\\wwwroot\\",
+      "BasePath": "/",
+      "RelativePath": "css/open-iconic/FONT-LICENSE",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\css\\open-iconic\\FONT-LICENSE"
     },
     {
       "Identity": "C:\\Users\\nestoras.miaritis\\Desktop\\NESTOR BACKUP FILES\\Projects\\c#\\EpsilonUI\\wwwroot\\css\\open-iconic\\ICON-LICENSE",
