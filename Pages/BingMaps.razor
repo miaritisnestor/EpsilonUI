@@ -25,7 +25,7 @@
         //As a result I can not create a bing key due to company's account restriction policies :(
         MapResult? mapResults = await Http.GetFromJsonAsync<MapResult>("http://dev.virtualearth.net/REST/v1/Autosuggest?query=" + mapQuery + "&key=<BingMapKey>");
         var mapValues = mapResults.resourceSets[0].resources[0].value;
-        //then loop through mapValues to render the results in UI ;)
+        //then loop through mapValues to render the results in UI ;) 
     }
 
 

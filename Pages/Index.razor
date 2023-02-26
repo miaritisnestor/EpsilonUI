@@ -3,6 +3,7 @@
 @implements IDisposable;
 @using EpsilonDbContext.Models;
 @using System.Net.Http.Json;
+@using EpsilonUI.Dtos;
 @using EpsilonUI.StateContainers;
 
 @inject IJSRuntime JsRuntime
@@ -72,6 +73,7 @@ else
     private List<Customer>? customers = new List<Customer>();
     private int offset = 0;
 
+    
     private async Task GetCustomersByOffset(int offset)
     {
         customers = await Http.GetFromJsonAsync<List<Customer>>("https://localhost:7190/api/Customers/get_customers/" + offset);
@@ -129,6 +131,9 @@ else
         NavigationManager.NavigateTo("/",true);
 
     }
+
+    //Create CompanyPerson instance in order to print employee name [DEMONASTRATION]
+    
 
     public void Dispose()
     {
